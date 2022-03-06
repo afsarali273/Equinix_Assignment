@@ -73,6 +73,22 @@ Then I shall see below results for various locale
 | Euskara   | Bilaketaren emaitza       |
 | فارسی     | نتایج جستجو               |
 | Français  | Résultats de la recherche |
+  
+Scenario: Search for celebrities birthday and spouse details in wiki
+Given I am on the wiki main page
+Then I search for below celebrities to validate their dob and spouse details
+| celebrities_name    | birthdate          | spouse_name      |
+| Johnny Depp         | June 9, 1963       | Lori Allison     |
+| Emma Watson         | 15 April 1990      |                  |
+| Brad Pitt           | December 18, 1963  | Jennifer Aniston |
+| Robert Downey Jr.   | April 4, 1965      | Deborah Falconer |
+| Daniel Radcliffe    | 23 July 1989       |                  |
+| Chris Evans (actor) | June 13, 1981      |                  |
+| Leonardo DiCaprio   | November 11, 1974  |                  |
+| Tom Cruise          | July 3, 1962       | Mimi Rogers      |
+| Sylvester Stallone  | July 6, 1946       | Sasha Czack      |
+| Will Smith          | September 25, 1968 | Sheree Zampino   |
+| Dwayne Johnson      | May 2, 1972        | Dany Garcia      |  
 
 ```
 
