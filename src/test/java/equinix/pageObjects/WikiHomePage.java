@@ -1,5 +1,6 @@
 package equinix.pageObjects;
 
+import equinix.utils.Utils;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -10,11 +11,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class WikiHomePage {
+public class WikiHomePage extends Utils {
 
     WebDriver driver;
 
     public WikiHomePage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -38,37 +40,43 @@ public class WikiHomePage {
 
     // =========== Page Actions ===========
 
-    public void selectLanguageFromSideBar(String language){
+    public WikiHomePage selectLanguageFromSideBar(String language){
         driver.findElement(
                 By.xpath(".//ul[@class='vector-menu-content-list']/li/a/span[contains(text(),'"+language+"')]")
         ).click();
         System.out.println("Selected Language is : "+language);
+        return this;
     }
 
-    public void searchTextInWiki(String searchText){
+    public WikiHomePage searchTextInWiki(String searchText){
         this.inputSearchBox.sendKeys(searchText+"\n");
         System.out.println("Searching for the text : "+ searchText);
+        return this;
     }
 
-    public void selectFirstSearchResult(){
+    public WikiHomePage selectFirstSearchResult(){
         linkSearchResult.get(0).click();
+        return this;
     }
 
-    public void verifySearchResultTextInCorrectLocale(String expectedText){
+    public WikiHomePage verifySearchResultTextInCorrectLocale(String expectedText){
         String actualText = this.txtSearchText.getText();
         Assert.assertEquals("Locale doesn't match with expected text.",expectedText,actualText);
+        return this;
     }
 
-    public void verifyBirthDay(String expectedDOB){
+    public WikiHomePage verifyBirthDay(String expectedDOB){
         System.out.println(" DOB "+txtDOB.get(0).getText());
         Assert.assertTrue("Date of Birth didn't match",txtDOB.get(0).getText().contains(expectedDOB));
+        return this;
     }
 
-    public void verifySpouseDetails(String expectedSpouse){
+    public WikiHomePage verifySpouseDetails(String expectedSpouse){
         if(txtSpouseDetails.size()>0 && StringUtils.isNotEmpty(expectedSpouse)){
             System.out.println("Spouse Details :\n"+txtSpouseDetails.get(0).getText());
             Assert.assertTrue("Spouse details didn't match", txtSpouseDetails.get(0).getText().contains(expectedSpouse));
         }
+        return this;
     }
 
 

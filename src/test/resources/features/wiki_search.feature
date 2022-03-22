@@ -20,8 +20,10 @@ Try to use  celebrities whose birthdates or spouse details are not available
 For submission, upload the project in github and provide us with the URL to review
 """
 
-  Scenario: Verification of localization in wikipedia
+  Background:
     Given I am on the wiki main page
+
+  Scenario: Verification of localization in wikipedia
     When I search text Equinix - Digital Infrastructure Company in wikipedia
     Then I shall see below results for various locale
       | locale    | text_to_verify            |
@@ -37,7 +39,6 @@ For submission, upload the project in github and provide us with the URL to revi
       | Français  | Résultats de la recherche |
 
   Scenario: Search for celebrities birthday and spouse details in wiki
-    Given I am on the wiki main page
     Then I search for below celebrities to validate their dob and spouse details
       | celebrities_name    | birthdate          | spouse_name      |
       | Johnny Depp         | June 9, 1963       | Lori Allison     |
