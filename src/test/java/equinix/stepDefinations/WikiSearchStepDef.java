@@ -9,7 +9,6 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import equinix.frameworkcore.DriverFactory;
 import io.cucumber.java.en.Given;
-import equinix.utils.Utils;
 import java.util.concurrent.TimeUnit;
 
 public class WikiSearchStepDef extends BaseClass {
@@ -47,8 +46,9 @@ public class WikiSearchStepDef extends BaseClass {
             getPage(WikiHomePage.class)
                     .selectLanguageFromSideBar(language)
                     .searchTextInWiki(searchItem)
-                    .verifySearchResultTextInCorrectLocale(searchResultInDiffLocale);
-            new Utils(driver).hardWait(1);
+                    .verifySearchResultTextInCorrectLocale(searchResultInDiffLocale)
+                    .hardWait(1);
+
             driver.navigate().back();
             driver.navigate().back();
 
@@ -62,7 +62,9 @@ public class WikiSearchStepDef extends BaseClass {
             String birthdate = row.get("birthdate");
             String spouseName = row.get("spouse_name");
 
-            getPage(WikiHomePage.class).searchTextInWiki(celebritiesName).hardWait(2);
+            getPage(WikiHomePage.class)
+                    .searchTextInWiki(celebritiesName)
+                    .hardWait(2);
 
             getPage(WikiHomePage.class)
                     .selectFirstSearchResult()
