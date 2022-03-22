@@ -17,7 +17,7 @@ import static org.apache.commons.lang3.StringUtils.leftPad;
 
 public class Utils {
 
-    public WebDriver driver;
+    protected WebDriver driver;
 
     public Utils(WebDriver driver) {
         this.driver=driver;

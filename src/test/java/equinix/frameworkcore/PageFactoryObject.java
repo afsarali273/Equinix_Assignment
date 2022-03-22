@@ -1,6 +1,8 @@
-package equinix.pageObjects;
+package equinix.frameworkcore;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
 import java.lang.reflect.InvocationTargetException;
 
 
@@ -15,6 +17,7 @@ public class PageFactoryObject {
     public  <T> T getPage(Class<T> clz)  {
         try {
             T obj = clz.getDeclaredConstructor(WebDriver.class).newInstance(this.driver);
+            PageFactory.initElements(driver, obj);
             return obj;
         } catch (InstantiationException e) {
             e.printStackTrace();

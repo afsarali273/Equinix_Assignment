@@ -13,12 +13,8 @@ import java.util.List;
 
 public class WikiHomePage extends Utils {
 
-    WebDriver driver;
-
     public WikiHomePage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 
     //======= Page Objects ===========

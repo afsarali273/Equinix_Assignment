@@ -1,6 +1,5 @@
 package equinix.frameworkcore;
 
-import equinix.pageObjects.PageFactoryObject;
 import org.openqa.selenium.WebDriver;
 
 public class BaseClass {
