@@ -67,7 +67,7 @@
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
-            <version>5.1.0</version>
+            <version>5.7.3</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
